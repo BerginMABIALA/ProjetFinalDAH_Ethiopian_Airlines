@@ -176,7 +176,7 @@ else:
         min_score = sentiment_series.min()
         max_score = sentiment_series.max()
 
-        # Affichage des statistiques
+        # Affichage des statistiquesst.write(f"**Moyenne des Scores de Sentiment :** {mean_score:.2f}")
         st.write(f"**Moyenne des Scores de Sentiment :** {mean_score:.2f}")
         st.write(f"**Médiane des Scores de Sentiment :** {median_score:.2f}")
         st.write(f"**Écart Type des Scores de Sentiment :** {std_dev:.2f}")
