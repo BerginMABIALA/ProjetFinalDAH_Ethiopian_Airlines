@@ -5,22 +5,6 @@ import streamlit as st
 from datetime import datetime
 from collections import defaultdict
 import matplotlib.pyplot as plt
-import streamlit.components.v1 as components
-
-# Code pour Google Analytics
-ga_html = """
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7E2J9BHSCS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-7E2J9BHSCS');
-</script>
-"""
-components.html(ga_html, height=0, width=0)
 
 # Nom du fichier JSON d'entrée avec les articles
 input_file_sentiments = 'nyt_articles2019_dates_reformatted.json'
@@ -176,9 +160,11 @@ else:
         min_score = sentiment_series.min()
         max_score = sentiment_series.max()
 
-        # Affichage des statistiquesst.write(f"**Moyenne des Scores de Sentiment :** {mean_score:.2f}")
+        # Affichage des statistiques
         st.write(f"**Moyenne des Scores de Sentiment :** {mean_score:.2f}")
         st.write(f"**Médiane des Scores de Sentiment :** {median_score:.2f}")
         st.write(f"**Écart Type des Scores de Sentiment :** {std_dev:.2f}")
         st.write(f"**Score Minimum :** {min_score:.2f}")
-        st.write(f"**
+        st.write(f"**Score Maximum :** {max_score:.2f}")
+    else:
+        st.write("Aucune donnée disponible pour la plage sélectionnée.")
